@@ -25,9 +25,10 @@ Milestones são agrupamentos de contribuições (issues) sinalizadas em um proje
 Labels são "etiquetas" que servem para categorizar as contribuições (issues).
 
 
+RECURSO NO SITE GITHUB: RELEASE (tags)
+Todos os "pushes" que foram feitos para o servidor (repositório online) com tags atribuídas aparecerão nesta tela do GitHub.
+
+
 ARQUIVO README: RESUMO/DESCRIÇÃO DO PROJETO
 o arquivo sempre será de nome "README" e extensão ".md"
 *Dica: Existe um formatador de README online que pode ser acessado através do site https://dillinger.io/
-
-
-

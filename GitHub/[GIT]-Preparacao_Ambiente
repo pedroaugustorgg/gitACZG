@@ -1,0 +1,56 @@
+CONFIGURAÇÕES GLOBAIS
+git config --global user.name "Fulano de Tal"
+git config --global user.email fulanodetal@exemplo.br
+git config --global core.editor gedit	(nesse caso o "gedit" será atribuido como editor padrão )
+
+*Outra alternativa (caso esteja utilizando Windows) é setar o endereço do seu editor padrão, por exemplo:
+git config --global core.editor "C:/Program Files/Notepad++/Notepad++.exe"
+
+SETANDO ATALHOS PARA O GIT
+Deve-se utilizar o comando "alias" e atribuir o atalho a um comando padrão, por exemplo:
+
+git config --global alias.st status
+
+No caso acima, está sendo configurado o atalho para o comando "git status" onde o mesmo poderá ser acionado ao digitar apenas "git st"
+*Obs.: Para desfazer o atalho criado para utilizar o comando "unset". Utilizando o exemplo de atalho criado anteriormente, desfazê-lo seria da seguinte forma:
+
+git config --global --unset alias.st
+
+
+LISTANDO CONFIGURAÇÕES GLOBAIS
+git config --list
+
+
+FERRAMENTA PARA RESOLUÇÃO DE CONFLITOS
+Exemplo: KDiff3 
+Download:
+[Windows: download/instalação] http://kdiff3.sourceforge.net/
+[Windows: Configuração]
+git config --global merge.tool kdiff3
+git config --global mergetool.kdiff3.path "C:/Program Files/KDiff3/bin/kdiff3.exe"
+git config --global mergetool.kdiff3.trustExitCode false
+git config --global diff.guitool kdiff3
+git config --global difftool.kdiff3.path "C:/Program Files/KDiff3/bin/kdiff3.exe"
+git config --global difftool.kdiff3.trustExitCode false
+
+[Linux - Fedora: download/Instalação] dnf install kdiff3
+[Linux - Fedora: Configuração]
+git config --global merge.tool kdiff3
+git config --global mergetool.kdiff3.path "/usr/bin/kdiff3"
+git config --global mergetool.kdiff3.trustExitCode false
+git config --global diff.guitool kdiff3
+git config --global difftool.kdiff3.path "/usr/bin/kdiff3"
+git config --global difftool.kdiff3.trustExitCode false
+
+
+BOAS PRÁTICAS 
+Adotá-las irá diminuir bastante a probabilidade de falhas e/ou erros durante o versionamento dos seus projetos.
+
+1 - Se possível sempre guardem os seus tokens em um gestor de senhas como uma boa prática de segurança
+Por ex.: BitWarden, EnPass etc.
+
+2 - Sempre realize alterações em uma branch fora da main/master, dessa forma conseguirar identificar falhas antes ou durante o merge posterior
+
+3 - Sempre que for fazer alteração/ajustes em algum repositório público ou privado, sincronize a versão mais atualizada da branch principal (master/main) com sua branch e repositório local, através do comando:
+git pull
+*Curiosidade: O comando "git pull" é uma junção dos comandos "git fetch" e "git merge". Onde, respectivamente, o primeiro comando serve para trazer as alterações do servidor (repositório online) e o segundo serve para "mesclar" as informações do servidor com o seu repositório local.

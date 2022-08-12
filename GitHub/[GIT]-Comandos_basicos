@@ -1,32 +1,50 @@
-INICIALISANDO UM REPOSITÓRIO LOCAL
+OBSERVAÇÃO: DESCONSIDERAR "ASPAS DUPLAS" QUANDO FOR EXECUTAR AS LINHAS DE COMANDO
+(apenas quando todo o comando estiver sob aspas duplas, ex.: "git init" não precisa de aspas para ser executado)
+
+INICIALIZANDO UM REPOSITÓRIO LOCAL
 "git init" inicia um repositório na pasta em que o bash (terminal) esteja sendo executado
 
 VERIFICANDO STATUS DO REPOSITÓRIO
 "git status" irá mostrar todos os arquivos do repositório, inclusive os que ainda não foram commitados
+"git remote -v" irá mostrar qual é a URL que está associada ao projeto/repositório atual
 
 
-VISUALIZAR ALTERAÇÕES
+VISUALIZAR ALTERAÇÕES ANTES DO COMMIT
 "git diff" irá mostrar alterações entre versões modificadas (modified) e não modificadas (unmodified)
-
 "git diff --cached" ou "git diff --staged" irá mostrar as alterações entre a área de preparação (staged, que já teve o git add) com a que já está commitada 
 
 
 HISTÓRICO DE COMMITS
-"git log" o commit mais recente aparecerá em cima e os demais abaixo dele (quanto mais antigo, mais abaixo)
-
-O "HEAD -> maain" indica o commit mais recente na branch atual
+"git log" o commit mais recente aparecerá em cima e os demais abaixo dele (quanto mais antigo, mais abaixo). O "HEAD -> main" indica o commit mais recente na branch atual
+"git log --oneline" histórico de commits sem detalhamento.
 
 
 USANDO COMMITS ANTERIORES
 "git checkout n°_do_commit" fazer o git apontar para aquela versão, com isso você pode voltar para uma versão anterior que não seja a HEAD (a mais recente). Muito útil para identificar bugs que surgiram em versões anteriores.
-
 *Obs.: Para voltar a versão mais recente, basta digitar "git checkout master" ou "git checkout main" dependendo da sua branch principal.
 
 
 DESFAZER TODAS AS ALTERAÇÕES FEITAS
-"git reset -- hard" este comando irá desfazer todas as alterações feitas no código e voltará para o estado inicial que você tinha na sua branch, considerando apenas o último commit
+"git checkout nome_arquivo.txt" irá desfazer/remover o arquivo "nome_arquivo.txt" que ainda não foi adicionado através do "git add" (este comando não apaga novos arquivos)
+"git checkout ." irá desfazer/remover TODOS os arquivos que não foram adicionadas através do "git add" (este comando não apaga novos arquivos)
+"git clean -f" irá desfazer a inserção de qualquer arquivo novo que ainda não foi adicionado através do "git add"
+"git clean -df" irá desfazer e remover qualquer arquivo novo que ainda não foi adicionado através do "git add"
+"git reset" irá desfazer o último comando de adição "git add" feito
+"git reset -- hard" irá desfazer o commit mais recente (todas as alterações feitas no código voltarão para o estado inicial antes do último commit)
+"git reset -- hard HEAD~3" irá desfazer os 3 últimos commits (o número no "HEAD~n°" irá indicar quantos commits serão desfeitos)
+"git commit --amend" irá abrir o seu editor git padrão para edição da mensagem do último commit feito
 
-"git clean -f" irá desfazer a inserção de qualquer arquivo "novo" que não estava no repósitório do commit mais recente.
+
+UTILIZANDO BRANCHES
+"git branch" irá listar as branches presentes no repositório local
+"git branch nome_da_branch" irá criar uma branch no repositório local
+"git checkout nome_da_branch" irá trocar para a branch desejada
+"git checkout -b nome_da_branch2" irá criar uma nova branch e já trocar para a nova branch criada
+"git branch -d nome_da_branch" irá excluir a branch digitada do repositório LOCAL (caso o git não permita e você queira forçar uma exclusão, basta subistituir o "-d" por "-D")
+"git push --delete origin nome_da_branch" irá excluir a branch digitada do repositório ONLINE
+"git push -u origin nome_da_branch" irá rastrear a branch do repositório local com a criação da branch no repositório online
+"git branch -m nome_da_branch3" irá renomear a branch atual que você estiver utilizando para "nome_da_branch3"
+"git branch -m nome_da_branch3 nome_da_branch45" irá renomear uma branch existente (que não pode ser a atual. Por ex.: Você está na branch "main" e quer renomear a branch de nome "nome_da_branch3" para "nome_da_branch45")
 
 
 TORNANDO UM REPOSITÓRIO LOCAL EM UM REPOSITÓRIO ONLINE
@@ -40,23 +58,63 @@ git remote rm
 
 Caso esteja tudo certo, após o "git remote show origin -n", siga  com:
 
-git push origin master      (ou main, vai depender do nome da sua branch principal)
-
+git push origin master		(ou main, vai depender do nome da sua branch principal)
+git push -u origin master		(nesse caso, o "-u" serve como uma abreviação para --set-upstream. Dessa forma o git irá criar a branch lá no repositório online e rastreá-la com seu repositório local)
 Após isso, será requisitado o seu usuário do GitHub e sua senha (que deverá inserido o token de acesso neste momento)
 
 
-TRANSMITINDO REPOSITÓRIO ONLINE-LOCAL E LOCAL-ONLINE
+ATUALIZANDO/TRANSMITINDO REPOSITÓRIO ONLINE-LOCAL E LOCAL-ONLINE
 "git push" envia o repositório local para o repositório online
-"git pull" traz o repositório online para seu repositório local
+*Obs.: o recomendado é sempre subir uma versão local para o servidor (repositório online) através do comando "git push" mais o nome da tag. Mais detalhes no tópico seguinte "CRIAÇÃO, LISTAGEM E REMOÇÃO DE TAGs".
+"git pull" traz o repositório online para seu repositório local (inclusive atualizando as branches presentes no repositório online)
+
+
+SALVANDO ALTERAÇÕES DO REPOSITÓRIO NA MEMÓRIA
+"git stash" Comando útil caso você precise trocar de branch e existam mudanças que serão perdidas ao trocar de branch. Executando este comando, o git irá salvar todas as alterações (feitas até então na branch atual) na memória do git e as estas podem ser retornadas ao utilizar o comando seguinte
+git stash save "Descrição da stash"		(neste caso a descrição do stash também será salva na memória para consultas no "stash list" posteriormente)
+"git stash list" irá listar as alterações salvas com as respectivas branches onde foram realizadas
+"git stash apply" irá aplicar a stash mais recente e executar a alteração no repositório atual (dentro da branch a qual foi salva anteriormente)
+"git stash apply stash@{3}" irá aplicar a stash{3} e executar a alteração no repositório atual (dentro da branch a qual foi salva anteriormente)
+"git stash pop" irá executar as alterações da stash mais recente e excluir a stash executada
+"git stash pop stash@{3}" irá executar as alterações da stash{3} e excluir a stash executada
+"git stash drop stash@{3}" irá remover apenas o "stash{3}" da lista de stashes.
+
+
+CRIAÇÃO, LISTAGEM E REMOÇÃO DE TAGs
+"git tag" serve para listar quais as tags presentes em seu repositório local naquele momento.
+git tag -a v1.0	-m "versão inicial"	irá criar uma tag no último commit que esteja disponível no seu repositório local (Neste caso, será atribuída a tag de nome "v1.0" ao seu repositório local e a descrição desta tag será "versão inicial")
+"git push origin nome_da_tag" serve para subir uma versão do repositório local para o servidor (repositório online) com uma tag acoplada ao commit
+"git tag -d nome_da_tag" irá remover uma tag de nome "nome_da_tag" do seu repositório local
+"git push --delete origin nome_da_tag" irá remover uma tag de nome "nome_da_tag" do servidor (repositório online) 
+
+ADICIONANDO TAG EM COMMITS ANTIGOS (Método 1)
+"git checkout os4b56u"		(neste caso o os4b56u é o endereço do commit)
+git tag -a nome_da_tag -m "Descrição da tag"		(atribuindo a tag ao commit específico)
+git push origin nome_da_tag		[subindo a tag deste commit para o servidor (repositório online)]
+
+ADICIONANDO TAG EM COMMITS ANTIGOS (Método 2)
+"git log --oneline"
+git tag -a nome_da_tag os4b56u -m "Descrição da tag"		(neste caso o os4b56u é o endereço do commit)
+git push origin nome_da_tag		[subindo a tag deste commit para o servidor (repositório online)]
 
 
 VERIFICANDO MODIFICAÇÕES E SUBINDO UMA NOVA VERSÃO
 As seguintes linhas de código deverão ser executadas:
-git status
-git add .
-git status
-git commit -m 'seu comentário'
-git push origin master      (ou main, vai depender do nome da sua branch principal)
+"git status"
+"git add ."
+"git status"
+"git commit -m 'seu comentário'"
+"git push origin master"      (ou main, vai depender do nome da sua branch principal)
+
+
+MESCLANDO ALTERAÇÕES
+As alterações sempre serão mescladas com a sua branche ATUAL, logo caso você queira mesclar sua branch de nome "nome_da_branch" com a main, então você deverá fazer o seguinte:
+"git checkout main"	irá setar a branch atual para main
+"git merge nome_da_branch"	 irá mesclar todas as atualizações da branch "nome_da_branch" com a branch atual (que no caso é a "main")
+
+LISTANDO AGRUPAMENTO DE BRANCHES E TAGs
+"git branch | grep BRA" irá listar todas as branches que iniciam ou possuem "BRA" no nome
+"git tag | grep v1" irá listar todas as tags que iniciam ou possuem "v1" no nome
 
 
 

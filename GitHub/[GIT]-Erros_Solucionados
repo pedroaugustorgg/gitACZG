@@ -7,7 +7,7 @@ error: failed to push some refs to 'https://github.com/user/repository'
 *Obs.: Ao invés de main -> main pode aparecer master -> master, vai depender do nome da sua branch principal.
 
 SOLUÇÃO[1]: 
-Tente executar as seguintes linhas na sequencia:
+Executar as seguintes linhas na sequencia:
 
 git fetch origin master
 git merge origin master
@@ -24,4 +24,34 @@ Com isso, será criada uma nova branch temporária, onde a mesma terá todo o se
 x---x---x---x---x---x---x---x---x----x
 
 PROBLEMA[2]:
+Acontece quando há atualizações/alterações no servidor (repositório online) que você não possui no seu repositório local. Dessa forma, ao tentar "mergear" seu repositório local com o servidor (online), aparecerá o erro abaixo.
+Erro:
+! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/user/repository'
+
+*Obs.: Ao invés de main -> main pode aparecer master -> master, vai depender do nome da sua branch principal.
+
+SOLUÇÃO[2]: 
+
+git pull
+
+Após isso, visualizar no código se o git retornou algum erro dentro do próprio código após a tentativa de pull, por exemplo ():
+
+<<<<<<< HEAD
+<html code line "att-repositorio_local">
+=======
+<html code line "att-repositorio_online">
+>>>>>>> 62hg56y87yj648526ssyfhh77852y6946h3c04786hj
+
+Com isso, você deve escolher qual será a versão definitiva (estão separadas por "=======") e seguir o processo de commit padrão, com as seguintes linhas:
+
+git status
+git add --all		(ou git "add ." dá no mesmo)
+git commit -m "descrição do commit"
+git push
+
+PROBLEMAS COMPLEXOS DE CONFLITO
+Definição de conflito: Mudança simultânea em um ou mais arquivos na mesma linha
+Caso não seja um erro simples de merge, como apresentado no "PROBLEMA[2]", recomenda-se  utilizar uma ferramenta para resolução de conflitos, como por exemplo o KDiff3.
+
 
