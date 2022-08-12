@@ -1,0 +1,62 @@
+INICIALISANDO UM REPOSITÓRIO LOCAL
+"git init" inicia um repositório na pasta em que o bash (terminal) esteja sendo executado
+
+VERIFICANDO STATUS DO REPOSITÓRIO
+"git status" irá mostrar todos os arquivos do repositório, inclusive os que ainda não foram commitados
+
+
+VISUALIZAR ALTERAÇÕES
+"git diff" irá mostrar alterações entre versões modificadas (modified) e não modificadas (unmodified)
+
+"git diff --cached" ou "git diff --staged" irá mostrar as alterações entre a área de preparação (staged, que já teve o git add) com a que já está commitada 
+
+
+HISTÓRICO DE COMMITS
+"git log" o commit mais recente aparecerá em cima e os demais abaixo dele (quanto mais antigo, mais abaixo)
+
+O "HEAD -> maain" indica o commit mais recente na branch atual
+
+
+USANDO COMMITS ANTERIORES
+"git checkout n°_do_commit" fazer o git apontar para aquela versão, com isso você pode voltar para uma versão anterior que não seja a HEAD (a mais recente). Muito útil para identificar bugs que surgiram em versões anteriores.
+
+*Obs.: Para voltar a versão mais recente, basta digitar "git checkout master" ou "git checkout main" dependendo da sua branch principal.
+
+
+DESFAZER TODAS AS ALTERAÇÕES FEITAS
+"git reset -- hard" este comando irá desfazer todas as alterações feitas no código e voltará para o estado inicial que você tinha na sua branch, considerando apenas o último commit
+
+"git clean -f" irá desfazer a inserção de qualquer arquivo "novo" que não estava no repósitório do commit mais recente.
+
+
+TORNANDO UM REPOSITÓRIO LOCAL EM UM REPOSITÓRIO ONLINE
+Com o repositório online já criado previamente lá no GitHub, deve-se seguir o seguinte passo a passo:
+
+git remote add origin 'https://github.com/usuario/nomedomeuprojeto.git'
+git remote show origin -n
+
+*Neste momento, caso tenha escrito a URL do repositório errada ou precise corrigir algo, deve-se utilizar a seguinte linha de código:
+git remote rm
+
+Caso esteja tudo certo, após o "git remote show origin -n", siga  com:
+
+git push origin master      (ou main, vai depender do nome da sua branch principal)
+
+Após isso, será requisitado o seu usuário do GitHub e sua senha (que deverá inserido o token de acesso neste momento)
+
+
+TRANSMITINDO REPOSITÓRIO ONLINE-LOCAL E LOCAL-ONLINE
+"git push" envia o repositório local para o repositório online
+"git pull" traz o repositório online para seu repositório local
+
+
+VERIFICANDO MODIFICAÇÕES E SUBINDO UMA NOVA VERSÃO
+As seguintes linhas de código deverão ser executadas:
+git status
+git add .
+git status
+git commit -m 'seu comentário'
+git push origin master      (ou main, vai depender do nome da sua branch principal)
+
+
+

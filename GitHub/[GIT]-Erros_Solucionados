@@ -1,0 +1,27 @@
+PROBLEMA[1]: 
+Ocorre quando você tenta dar um "git push origin main", logo após inserir o usuário e a senha do github.
+Erro:
+! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'https://github.com/user/repository'
+
+*Obs.: Ao invés de main -> main pode aparecer master -> master, vai depender do nome da sua branch principal.
+
+SOLUÇÃO[1]: 
+Tente executar as seguintes linhas na sequencia:
+
+git fetch origin master
+git merge origin master
+
+Depois disso, caso você receba outro erro (non-fast-forward), escreva as linhas de código abaixo:
+
+git fetch origin master:tmp
+git rebase tmp
+git push origin HEAD:master
+git branch -D tmp
+
+Com isso, será criada uma nova branch temporária, onde a mesma terá todo o seu repositório local com as devidas alterações confirmadas e será reproduzido na branch principal (main ou master). Após isso, a última linha irá excluir a branch temporária.
+
+x---x---x---x---x---x---x---x---x----x
+
+PROBLEMA[2]:
+

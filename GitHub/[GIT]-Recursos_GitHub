@@ -1,0 +1,33 @@
+ARQUIVO .GITIGNORE: IGNORAR ARQUIVOS DURANTE OS COMMITS(VERSIONAMENTOS)
+Um arquivo de nome/extensão ".gitignore" deverá ser criado dentro do repositório.
+Com isso todos os arquivos dentro desse ".gitignore" serão ignorados durante os versionamentos.
+*Obs.: A página https://github.com/github/gitignore possui o arquivo ".gitignore" modelos para vários projetos e linguagens diferentes. 
+
+ex¹.: Para excluir apenas um arquivo específico é só inserir o nome e a extensão dentro no ".gitignore", ou seja, se você digitar "note_teste.txt" em uma linha dentro do ".gitignore" então o arquivo de nome "note_teste.txt" será ignorado durante os versionamentos.
+
+ex².: Para excluir todos os arquivos de uma determinada extensão é só inserir "*.extesão" dentro no ".gitignore", ou seja, se você digitar "*.bmp" em uma linha dentro do ".gitignore" então o arquivo todos os arquivos da extensão ".bmp" serão ignorados durante os versionamentos.
+
+ex³.: Para excluir todos os arquivos de uma determinada pasta é só inserir "nome_da_pasta/" dentro no ".gitignore", ou seja, se você digitar "nome_da_pasta/" em uma linha dentro do ".gitignore" então esta pasta e todos os arquivos contidos nela serão ignorados durante os versionamentos.
+
+ex4.:Para excluir todo arquivo de uma extensão específica dentro de uma determinada pasta é só inserir "nome_da_pasta/*.bmp" dentro no ".gitignore", ou seja, se você digitar "nome_da_pasta/*.bmp" em uma linha dentro do ".gitignore" então todos os arquivos com a extensão ".bmp" dentro da pasta "nome_da_pasta" serão ignorados durante os versionamentos.
+
+
+RECURSO NO SITE GITHUB: "Fork" e "Star"
+O repositório marcado com "Star" serve apenas para você tê-lo como "favorito" em seu perfil do GitHub.
+Já o "Fork" serve para você clonar aquele repositório para você (criando assim um repositório editável dentro do seu perfil) e, caso deseje, colaborar resolvendo alguma issue (por exemplo) através de um "pull request" sugerindo alterações/adições e ajustes no código fonte do repositório oficial.
+
+
+RECURSO NO SITE GITHUB: ISSUES, MILESTONES E LABELS
+Issues são contribuições de participantes de um código (seja ele aberto ou fechado). Ex.: Sinalização de um bug encontrado no projeto.
+
+Milestones são agrupamentos de contribuições (issues) sinalizadas em um projeto
+
+Labels são "etiquetas" que servem para categorizar as contribuições (issues).
+
+
+ARQUIVO README: RESUMO/DESCRIÇÃO DO PROJETO
+o arquivo sempre será de nome "README" e extensão ".md"
+*Dica: Existe um formatador de README online que pode ser acessado através do site https://dillinger.io/
+
+
+
