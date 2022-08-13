@@ -66,6 +66,7 @@ Após isso, será requisitado o seu usuário do GitHub e sua senha (que deverá 
 ATUALIZANDO/TRANSMITINDO REPOSITÓRIO ONLINE-LOCAL E LOCAL-ONLINE
 "git push"	envia o repositório local para o repositório online
 *Obs.: o recomendado é sempre subir uma versão local para o servidor (repositório online) através do comando "git push" mais o nome da tag. Mais detalhes no tópico seguinte "CRIAÇÃO, LISTAGEM E REMOÇÃO DE TAGs".
+git push origin master		(ou main, vai depender do nome da sua branch principal. Irá subir uma versão diretamente na branch principal do repositório com o seu commit local mais recente)
 "git pull"	traz o repositório online para seu repositório local (inclusive atualizando as branches presentes no repositório online)
 
 
