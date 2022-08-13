@@ -83,7 +83,7 @@ git stash save "Descrição da stash"		(neste caso a descrição do stash també
 CRIAÇÃO, LISTAGEM E REMOÇÃO DE TAGs
 "git tag"	serve para listar quais as tags presentes em seu repositório local naquele momento.
 git tag -a v1.0 -m "versão inicial"	irá criar uma tag no último commit que esteja disponível no seu repositório local (Neste caso, será atribuída a tag de nome "v1.0" ao seu repositório local e a descrição desta tag será "versão inicial")
-"git push origin nome_da_tag"	serve para acoplar uma tag ao commit mais recente para o servidor (repositório online)
+"git push origin nome_da_tag"	serve para acoplar uma tag criada ao commit mais recente para o servidor (repositório online)
 "git tag -d nome_da_tag"	irá remover uma tag de nome "nome_da_tag" do seu repositório local
 "git push --delete origin nome_da_tag"	irá remover uma tag de nome "nome_da_tag" do servidor (repositório online) 
 
