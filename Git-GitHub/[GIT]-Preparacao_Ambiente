@@ -20,6 +20,7 @@ git config --global --unset alias.st
 INSTALANDO GIT-FLOW
 [FEDORA] apt-get install git-flow
 [UBUNTO/DEBIAN] apt-get install git-flow
+*Em caso de dúvidas ou problemas na instação, recomendo a instalação manual através do link https://github.com/petervanderdoes/gitflow-avh/wiki/Installing-manually
 
 
 LISTANDO CONFIGURAÇÕES GLOBAIS

@@ -1,0 +1,62 @@
+Instalação do Java e JDK através do ASDF:
+FONTES:	https://asdf-vm.com/guide/getting-started.html#_2-download-asdf
+	https://github.com/asdf-vm/asdf
+
+
+1. Instalação de dependências
+
+
+1.1 Instalação do GIT
+	[Linux - Fedora] dnf install curl git
+	[Linux - Ubuntu] apt install curl git
+	
+1.2 Com git instalado, prosseguimos com o download do ASDF via Terminal
+	git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
+	
+1.3 Instalação do gedit
+	[Linux - Fedora] sudo dnf install gedit
+	[Linux - Ubuntu] sudo apt-get install gedit
+	
+1.4 Instalação do asdf
+	Com o bashrc já instalado (normalmente é instalado junto ao git), devemos executar as próximas linhas com permissão de administrador, que são:
+	
+	$HOME/.asdf/asdf.sh
+	$HOME/.asdf/completions/asdf.bash
+	gedit ~/.bashrc 
+
+	*O gedit irá abrir após a execução da última linha de comando. Com o gedit aberto, você deve pular uma linha após a última linha do documento e inserir estas duas linhas (inclusive com o . antecedendo):
+	
+	. $HOME/.asdf/asdf.sh
+	. $HOME/.asdf/completions/asdf.bash
+	
+	*Para validar se o asdf foi instalado corretamente, basta abrir um novo terminal e digitar apenas "asdf" (sem as aspas). Caso não funcione de primeira, tente executar o comando através do root.
+	
+	
+2. Instalação do Java + plugins
+
+2.1 Instalação de plugin, com o asdf já instalado, deve-se executar a seguinte linha de comando:
+
+	asdf plugin java
+	
+	*comando opcional: "asdf list java" caso você queira ver se já possui alguma versão do java instalado no PC
+
+2.2 Instação do Java
+	
+	asdf list all java
+*serão listadas as versões disponíveis para download
+*Após isso, você deve inserir qual a versão a ser instalada, por exemplo:
+	asdf install java zulu-musl-8.48.0.53
+	
+*Após terminada a instalação do java, você deve setá-la como versão default (padrão) do java na sua máquina. Como por exemplo:
+	asdf global java zulu-musl-8.48.0.53
+	
+FIM
+
+*Para verificar qual a versão padrão instalada na sua máquina, basta executar a seguinte linha de comando:
+	java -version
+	
+	
+	
+
+	 
+
