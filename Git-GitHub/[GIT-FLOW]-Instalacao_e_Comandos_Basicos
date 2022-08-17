@@ -1,0 +1,22 @@
+Informações retiradas do site: https://danielkummer.github.io/git-flow-cheatsheet/index.pt_BR.html
+
+INSTALAÇÃO MANUAL (https://github.com/petervanderdoes/gitflow-avh/wiki/Installing-manually)
+
+1. Clone o repositório oficial para a pasta que você deseja instalar:	
+	git clone git://github.com/petervanderdoes/gitflow.git
+
+2. Execute o instalador
+	sudo make install
+
+3. ‎Por padrão, o "git flow" será instalado em /usr/local. Para alterar o endereço onde ele será instalado, basta especificá-lo explicitamente, usando a linha de comando:‎
+	sudo make prefix=/opt/local install
+
+*Obs.: O git-flow ‎depende da disponibilidade do utilitário da linha de comando, que pode não estar disponível em seu ambiente Unix/Linux. ‎
+‎ Por favor, use o seu gerenciador de pacotes favorito para instalar . ‎
+‎ Para Cygwin, instale o pacote para obter . ‎
+‎ Se você usar como seu gerenciador de instalações, o nome do pacote é .‎getopt getopt util-linux getopt apt-get opt
+
+
+INICIALIZAÇÃO (DENTRO DE UM REPOSITÓRIO GIT EXISTENTE)
+
+	git flow init

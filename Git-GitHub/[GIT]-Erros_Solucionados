@@ -53,5 +53,3 @@ git push
 PROBLEMAS COMPLEXOS DE CONFLITO
 Definição de conflito: Mudança simultânea em um ou mais arquivos na mesma linha
 Caso não seja um erro simples de merge, como apresentado no "PROBLEMA[2]", recomenda-se  utilizar uma ferramenta para resolução de conflitos, como por exemplo o KDiff3.
-
-
