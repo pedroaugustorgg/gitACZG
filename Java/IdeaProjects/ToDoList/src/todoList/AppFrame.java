@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class AppFrame extends JFrame { //Classe herdada do "JFrame"
+public class AppFrame extends JFrame { //Classe referente à janela do app, herdada do "JFrame"
     TitleBar title = new TitleBar(); //Variável do tipo "TitleBar" de nome "title" orientada ao objeto "TitleBar" ao Texto escrito na barra de título
     BtnPanel btnpanel = new BtnPanel();
     List list = new List();

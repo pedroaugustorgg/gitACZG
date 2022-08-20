@@ -21,7 +21,7 @@ public class Task extends JPanel {
         index.setPreferredSize(new Dimension(10, 20));
         index.setHorizontalAlignment(JLabel.LEFT);
         index.setBackground(new Color(255, 234, 17));
-        this.add(this.index); //Adicionando à coluna "index" da lista criada
+        this.add(this.index); //Numeração sequencial, adicionando à coluna primeira coluna "index" da lista criada
 
         taskname = new JTextField("enter task");
         taskname.setPreferredSize(new Dimension(10, 20));
@@ -30,10 +30,12 @@ public class Task extends JPanel {
         this.add(taskname); //Adicionando à coluna "taskname" da lista criada
 
         done = new JButton("Done");
+        done.setFont(new Font("Sans-serif", Font.BOLD, 15));
         done.setPreferredSize(new Dimension(10, 20));
         this.add(this.done);
 
         remove = new JButton("Remove");
+        remove.setFont(new Font("Sans-serif", Font.BOLD, 15));
         remove.setPreferredSize(new Dimension(10, 20));
         this.add(this.remove); //Adicionando à coluna "remove" da lista criada
 
