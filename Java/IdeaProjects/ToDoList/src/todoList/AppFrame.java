@@ -7,15 +7,17 @@ import java.awt.event.MouseEvent;
 
 public class AppFrame extends JFrame { //Classe referente à janela do app, herdada do "JFrame"
     TitleBar title = new TitleBar(); //Variável do tipo "TitleBar" de nome "title" orientada ao objeto "TitleBar" ao Texto escrito na barra de título
+//    TitleBar subtitle = new TitleBar();
     BtnPanel btnpanel = new BtnPanel();
     List list = new List();
     private JButton addtask;
     private JButton clear;
 
     public AppFrame () {
-        this.setSize(400 , 700);
+        this.setSize(1920 , 1080);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setVisible(true);
+        this.add(this.title, BorderLayout.NORTH);
         this.add(this.title, BorderLayout.NORTH);
         this.add(this.btnpanel,BorderLayout.SOUTH);
         this.add(this.list, BorderLayout.CENTER);
