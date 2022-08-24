@@ -1,0 +1,101 @@
+PECULIARIDADES DO GROOVY (COMPARANDO COM O JAVA)
+
+1. O Groovy é uma linguagem de scripts baseados em true ou false (semelhante às variáveis booleanas do Java, porém utilizando isso como default em tudo)
+
+
+2. Existem alguns comandos que sempre serão "FALSE" para o Groovy, exemplos:
+	null;
+	"";
+	[];
+	[:];
+	
+	
+3. Uma String não precisa ser declarada, qualquer coisa entre aspas duplas já é considerada verdadeira e será compilado como uma string. Exemplo:
+	if ("a") {
+		print ("teste")
+	}
+	
+	*Neste caso será impresso na tela a palavra "teste" pois a condição do if sendo ("a") está sendo satisfeita (é verdadeira)
+	
+	
+4. Não é necessário utilizar o .equals na comparação entre objetos. Para o groovy é possível comparar qualquer coisa com o "==". Por exemplo:
+	if (a == null || a == "") {
+		print ("teste")
+	}
+	
+	*Neste caso não será impresso nada em tela, pós a impressão ocorrerá apenas caso o a seja exatamente nulo ou exatamente vazio.
+	
+	
+5. Para criar uma lista não é necessário instanciá-la (ex.: "new ArrayList();"). Basta acrescentar colchetes e já inserir os elementos dentro desta. exemplo:
+	 [] *Lista vazia;
+	 [1, 2, 3] *Lista com 3 elementos inteiros;
+	 ["a", "teste", "bug"] *Lista com 3 Strings.
+	
+	 
+6. Para criar uma mapas não é necessário instanciá-lo (ex.: "new HashMap<String,String>();"). Basta acrescentar colchetes e já inserir os elementos deste, exemplo:
+	[a:"a"] *Criação de mapa no groovy
+	
+	
+7. O groovy por padrão utiliza BigDecimal para qualquer número decimal, não sendo necessário o usuário atribuir o tipo de um número com valores decimais.
+
+
+8. Operadores de visibilidade no Jaxa:
+class Teste {
+	Double x  //visível apenas nas classes do mesmo pacote, porém não é possível herdá-lo
+	private Double y //visível apenas nesta classe
+	protected Double z //visível apenas nas classes do mesmo pacotee e também é possível herdá-lo
+	public Double w //visível em qualquer classe ou pacote
+}
+
+
+8.1 Getters e Setters são criados automaticamente no groovy (exceto quando a visibilidade esteja como "private"). Exemplo:
+Exemplo¹:
+class Teste {
+	Double x
+	
+	public Double setX(Double x){
+	
+	}
+	
+}
+
+GET:
+new Teste().x //Substitui o "new Teste().getx()" do java
+
+SET:
+new Teste().x = "" //Substitui o "new Test().setx()" do java
+
+Exemplo²: com operador de visibilidade "private".
+class Teste {
+	private Double x
+	
+	public Double getX(){
+	
+	}
+}
+
+new Teste().x //Neste caso o Groovy irá considerar apenas o get do "Double x", uma vez que a variável está privada e apenas o get está publico
+
+
+9. Qualquer método que receba mapa (ex.: constructors) eles podem ser declarados sem precisar criá-los.
+Exemplo¹
+class Teste {
+	Double x
+	Double y
+}
+
+new Test([x: 10, y: 50]) //Inclusive estes colchetes são opcionais, podendo ficar mais simples ainda, como por exemplo "new Test(x: 10, y: 50)"
+
+10. Métodos não precisam de parêntesis para serem declarados.
+Exemplo¹: 
+class Teste {
+	Double x
+	Double y
+	
+	public void metodo(Double x, Double y) {
+	
+	}
+}
+
+new Teste().metodo(1.0, 2.0) //Forma "tradicional" de declarações
+new Teste().metodo 1.0, 2.0 //Funciona da mesma forma que o método acima 

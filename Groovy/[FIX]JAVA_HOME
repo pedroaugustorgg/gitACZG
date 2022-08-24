@@ -1,0 +1,42 @@
+Exevute as seguintes linhas de comando
+
+sudo alternatives --config java
+
+*Após isso, sabendo qual versão você irá escolher, copie o endereço para inserí-lo no bashprofile, neste caso eu utilizei o gedit para configurá-lo da seguinte forma:
+
+gedit ~/.bash_profile
+
+	*****TELA APÓS ABRIR O "bash_profile" NO GEDIT*****
+	
+	# .bash_profile
+
+	# Get the aliases and functions
+	if [ -f ~/.bashrc ]; then
+		. ~/.bashrc
+	fi
+
+	# User specific environment and startup programs
+	
+	*****TELA APÓS ABRIR O "bash_profile" NO GEDIT*****
+
+De acordo com a versão do JDK escolhida, insire estas duas linhas abaixo (com sua versão, claro):
+	export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-17.0.4.0.8-1.fc36.x86_64/bin/java
+	export PATH=$PATH:/usr/lib/jvm/java-17-openjdk-17.0.4.0.8-1.fc36.x86_64/bin
+	
+Com isso, o arquivo deve ser salvo da seguinte forma (seguindo o modelo de exemplo onde foi escolhido o jdk 17):
+
+	*****TELA APÓS SALVAR O "bash_profile" EDITADO*****
+
+	# .bash_profile
+
+	# Get the aliases and functions
+	if [ -f ~/.bashrc ]; then
+		. ~/.bashrc
+	fi
+
+	# User specific environment and startup programs
+	export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-17.0.4.0.8-1.fc36.x86_64/bin/java
+	export PATH=$PATH:/usr/lib/jvm/java-17-openjdk-17.0.4.0.8-1.fc36.x86_64/bin
+	
+	*****TELA APÓS SALVAR O "bash_profile" EDITADO*****
+

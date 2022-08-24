@@ -2,6 +2,7 @@ CONFIGURAÇÕES GLOBAIS
 git config --global user.name "Fulano de Tal"
 git config --global user.email fulanodetal@exemplo.br
 git config --global core.editor gedit	(nesse caso o "gedit" será atribuido como editor padrão )
+git config --global credential.helper cache	(*comando opcional, serve para salvar suas credenciais/token, não obrigando a inserção sempre que houver um "git push")
 
 *Outra alternativa (caso esteja utilizando Windows) é setar o endereço do seu editor padrão, por exemplo:
 git config --global core.editor "C:/Program Files/Notepad++/Notepad++.exe"
